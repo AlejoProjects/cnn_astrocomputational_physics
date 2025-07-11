@@ -1,0 +1,12 @@
+# Ignore everything by default
+*
+
+# Allow Git to look inside all directories
+!*/
+
+# Track Python scripts and Jupyter notebooks
+!*.py
+!*.ipynb
+
+# Always track this .gitignore file
+!.gitignore
