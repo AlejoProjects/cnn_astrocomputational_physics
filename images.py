@@ -98,14 +98,15 @@ def random_params():
 
 if __name__ == "__main__":
     output_folder = Path("exoplanet")
+    lg.clean_directory("exoplanet")
     #clean_directories()
     #generate_light_curves(500)  # Generate 250 light curves for each object type
     #for i in range(500):
     #   print(f"Generating light curve for {objects[0]} with index {i}")
      #  lg.generate_light_curve(objects[3],i,n_points=7000,noise_std=0.0015,return_data=False,plot=False,download_fig=True) 
       # clear_terminal()
-    for i in range(4):
-        lg.generate_light_curve(objects[i],1100,n_points=7000,noise_std=0.0015,return_data=False,plot=False,download_fig=True)
+    #for i in range(4):
+     #   lg.generate_light_curve(objects[i],1100,n_points=7000,noise_std=0.0015,return_data=False,plot=False,download_fig=True)
 
     #for i in range(1, 600):       # n noisy snapshots
      #  make_and_save_curve(i, output_folder)
