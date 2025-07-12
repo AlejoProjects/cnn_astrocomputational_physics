@@ -47,7 +47,7 @@ And there could be other problems with dependencies.
 | **Synthetic curves** | `python images.py`          | • wipes old images in `binary_star/ pulsating_star/ normal_star/` <br>• creates 1 100 light-curves per class with Gaussian noise (σ ≈ 1.5 e-3) and resizes every PNG to **128×128**.                                             |
 | **Real transits**    | `python real_exoplanets.py` | • queries NASA Exoplanet Archive, <br>• downloads the first available Kepler/K2/TESS **PDCSAP** light-curve, normalises it, <br>• draws an axis-free red line and saves into **`light_curves/tests/`** for unbiased evaluation.  |
 # 🧠 Training the CNN
-Open primer_modelo.ipynb and simply run all cells:
+Open cnn_network.ipynb and simply run all cells:
 
 Data loader: scans light_curves/* and builds tf.data.Dataset pipelines with on-the-fly augmentation (random flips, small jitter).
 
