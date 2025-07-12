@@ -4,6 +4,7 @@ Goal: train a Convolutional Neural Network that tells real / synthetic exoplanet
 All light-curves are turned into minimalist 128 × 128-pixel PNGs and stored in a clean folder hierarchy so you can re-generate data, (re-)train, and run inference with a single notebook.
 
 # 🌐 Project layout
+``
 ├── light_curves/                 ← all images live here
 │   ├── binary_star/              ← detached eclipsing binaries
 │   ├── pulsating_star/           ← Cepheid-like pulsators
@@ -17,18 +18,25 @@ All light-curves are turned into minimalist 128 × 128-pixel PNGs and stored in 
 │
 ├── primer_modelo.ipynb           ← ✨ Jupyter notebook: builds & trains the CNN
 └── README.md                     ← you are here
+``
 # 🔧 Quick setup
 ####  1) clone & create an isolated env
+``
 git clone <your-repo>
 cd <your-repo>
 python -m venv .venv
 source .venv/bin/activate  # Win: .venv\Scripts\activate
+``
 
 ### 2) install requirements
+``
 pip install -r requirements.txt
+``
   or, bare minimum:
+  ``
 pip install tensorflow matplotlib numpy pillow
 pip install lightkurve astroquery pandas tqdm         # for real data
+``
 
 It'rs recommended you use a package manager like anaconda since tensorflow doesnt work with every python version(the one used for the project was 3.11)
 And there could be other problems with dependencies.
@@ -43,8 +51,10 @@ Open primer_modelo.ipynb and simply run all cells:
 Data loader: scans light_curves/* and builds tf.data.Dataset pipelines with on-the-fly augmentation (random flips, small jitter).
 
 Model:
+``
 Input (128,128,1) → Conv-ReLU-MaxPool ×2 → GlobalAveragePooling2D
                    → Dense(64) → Dropout(0.3) → Dense(1, sigmoid)
+                   ``
 Global average pooling keeps the network resolution-agnostic, so you won’t have to tweak Dense sizes when changing the image size.
 
 * Training: binary cross-entropy, Adam (lr = 1 e-3), early-stopping on val_loss.
