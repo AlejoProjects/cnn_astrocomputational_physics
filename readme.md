@@ -5,19 +5,20 @@ All light-curves are turned into minimalist 128 × 128-pixel PNGs and stored in 
 
 # 🌐 Project layout
 ``
-├── light_curves/                 ← all images live here
-│   ├── binary_star/              ← detached eclipsing binaries
-│   ├── pulsating_star/           ← Cepheid-like pulsators
-│   ├── normal_star/              ← spot / granulation noise
-│   ├── exoplanet/                ← synthetic & real transits
-│   └── tests/                    ← hold-out set for final score
-│
-├── lightcurve_generator.py       ← low-level synthetic curves API  ◆
-├── images.py                     ← batch generator / noise add-on  ◆
-├── real_exoplanets.py            ← downloads real TESS/Kepler data ◆
-│
-├── primer_modelo.ipynb           ← ✨ Jupyter notebook: builds & trains the CNN
-└── README.md                     ← you are here
+| Path | Purpose |
+|------|---------|
+| `light_curves/` | all images live here |
+| ├── `binary_star/` | detached eclipsing binaries |
+| ├── `pulsating_star/` | Cepheid-like pulsators |
+| ├── `normal_star/` | spot / granulation noise |
+| ├── `exoplanet/` | synthetic & real transits |
+| └── `tests/` | hold-out set for final score |
+| `lightcurve_generator.py` | low-level synthetic curves API |
+| `images.py` | batch generator / noise add-on |
+| `real_exoplanets.py` | downloads real TESS/Kepler data |
+| `primer_modelo.ipynb` | Jupyter notebook: builds & trains the CNN |
+| `README.md` | you are here |
+
 ``
 # 🔧 Quick setup
 ####  1) clone & create an isolated env
