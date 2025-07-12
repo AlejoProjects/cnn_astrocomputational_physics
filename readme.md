@@ -7,17 +7,17 @@ All light-curves are turned into minimalist 128 × 128-pixel PNGs and stored in 
 ``
 | Path | Purpose |
 |------|---------|
-| `light_curves/` | all images live here |
-| ├── `binary_star/` | detached eclipsing binaries |
-| ├── `pulsating_star/` | Cepheid-like pulsators |
-| ├── `normal_star/` | spot / granulation noise |
+| `light_curves/` | all images live here(lightcurves) |
+| ├── `binary_star/` | artificial binaries |
+| ├── `pulsating_star/` | artificial pulsators |
+| ├── `normal_star/` | artificial normal stars|
 | ├── `exoplanet/` | synthetic & real transits |
 | └── `tests/` | hold-out set for final score |
-| `lightcurve_generator.py` | low-level synthetic curves API |
+| `lightcurve_generator.py` |  synthetic curves |
 | `images.py` | batch generator / noise add-on |
 | `real_exoplanets.py` | downloads real TESS/Kepler data |
 | `primer_modelo.ipynb` | Jupyter notebook: builds & trains the CNN |
-| `README.md` | you are here |
+| `README.md` 
 
 ``
 # 🔧 Quick setup
