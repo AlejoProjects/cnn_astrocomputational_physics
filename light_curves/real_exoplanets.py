@@ -20,9 +20,9 @@ from astroquery.ipac.nexsci.nasa_exoplanet_archive import NasaExoplanetArchive
 from tqdm import tqdm
 
 # ------------- CONFIG -------------------------------------------------
-N_IMAGES             = 500
+N_IMAGES             = 10
 CANDIDATE_POOL_SIZE  = 3000        # ask for many; we’ll skip those with no data
-OUTPUT_DIR           = Path("exoplanet")
+OUTPUT_DIR           = Path("tests")
 MISSION_PREF_ORDER   = ["Kepler", "K2", "TESS"]   # order you’d like to try
 LINE_COLOR           = "red"
 LINE_WIDTH           = 0.4
