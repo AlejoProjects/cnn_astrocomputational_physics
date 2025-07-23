@@ -63,3 +63,4 @@ Global average pooling keeps the network resolution-agnostic, so you won’t hav
 * Save: writes exoplanet_cnn_weights.h5 next to the notebook.
 
 * Evaluation: loads the model and scores it on light_curves/tests/ (accuracy, ROC-AUC, confusion matrix).
+ Thanks.
