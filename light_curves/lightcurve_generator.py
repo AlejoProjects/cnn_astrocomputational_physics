@@ -69,11 +69,15 @@ def _rng(random_state: Optional[int | np.random.Generator] = None) -> np.random.
 # ------------------------------------------------------------------------
 def _normal_star(t: np.ndarray, rng: np.random.Generator) -> np.ndarray:
     """Small‑amplitude quasi‑periodic variability (granulation / spots)."""
-    amp   = rng.uniform(1e-3, 5e-2)
-    period= rng.uniform(1.0, 30.0)
-    phase = rng.uniform(0, 2*np.pi)
-    trend = rng.uniform(-1e-4, 1e-4) * t
-    return 1.0 + amp*np.sin(2*np.pi*t/period + phase) + trend
+    """Box‑like transit of a single exoplanet (no limb darkening)."""
+    period       = rng.uniform(1.0, 20.0)
+    depth        = rng.uniform(5e-4, 3e-2)   # up to 3 %
+    duration     = rng.uniform(0.02, 0.1) * period
+    phase  = (t % period)
+
+    flux = np.ones_like(t)
+    return flux
+
 
 def _pulsating_star(t: np.ndarray, rng: np.random.Generator) -> np.ndarray:
     """Simple Cepheid‑like sinusoid with larger amplitude."""
@@ -130,7 +134,7 @@ def generate_light_curve(object_type: str,type_value,
                          plot: bool = False,
                          return_data: bool = False,
                          download_fig: bool = False
-                         ) -> Optional[Tuple[np.ndarray, np.ndarray]]:
+                        ,desired_path = "trainnning" ) -> Optional[Tuple[np.ndarray, np.ndarray]]:
     """Generate *and optionally plot* a synthetic light‑curve.
 
     Parameters
@@ -172,7 +176,12 @@ def generate_light_curve(object_type: str,type_value,
     # Add Gaussian noise
     flux += rng.normal(0.0, noise_std, size=n_points)
     if download_fig:
-        imag_path = f"{object_type}\\{type_value}_light_curve.png"
+        if desired_path == "trainning":
+            imag_path = f"{object_type}\\{type_value}_light_curve.png"
+        elif desired_path == "testing":
+            imag_path = f"tests\\{object_type}_{type_value}_light_curve.png"
+       
+      
         #check_directory_exists(object_type)
         plt.figure()
         plt.plot(t, flux, linestyle='-', marker='', linewidth=1,color='black')

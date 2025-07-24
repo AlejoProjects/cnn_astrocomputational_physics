@@ -30,8 +30,8 @@ def generate_light_curves(number):
     for i in range(number):
         print(f"Generated light curves  progress: {(i/number)*100:.2f}%")
         lg.generate_light_curve(objects[0],i,n_points=7000,noise_std=0.0015,return_data=False,plot=False,download_fig=True)
-        lg.generate_light_curve(objects[1],i,n_points=7000,noise_std=0.0015,return_data=False,plot=False,download_fig=True)
-        lg.generate_light_curve(objects[2],i,n_points=7000,noise_std=0.0015,return_data=False,plot=False,download_fig=True)
+        #lg.generate_light_curve(objects[1],i,n_points=7000,noise_std=0.0015,return_data=False,plot=False,download_fig=True)
+        #lg.generate_light_curve(objects[2],i,n_points=7000,noise_std=0.0015,return_data=False,plot=False,download_fig=True)
  
         
        
@@ -101,14 +101,15 @@ def random_params():
 if __name__ == "__main__":
     output_folder = Path("exoplanet")
     #lg.clean_directory("exoplanet")
-    clean_directories()
-    generate_light_curves(1100)  # Generate 250 light curves for each object type
-    for i in range(400):
-       print(f"Generating light curve for {objects[3]} with index {i}")
-       lg.generate_light_curve(objects[3],i,n_points=7000,noise_std=0.0015,return_data=False,plot=False,download_fig=True) 
+    #clean_directories()
+    #lg.clean_directory(objects[0])
+    #generate_light_curves(1100)  # Generate 250 light curves for each object type
+    for i in range(1, 10):
+        lg.generate_light_curve(objects[0], i, n_points=7000, noise_std=0.0015, return_data=False, plot=False, download_fig=True, desired_path="testing")
+  
       # clear_terminal()
     #for i in range(4):
      #   lg.generate_light_curve(objects[i],1100,n_points=7000,noise_std=0.0015,return_data=False,plot=False,download_fig=True)
 
-    for i in range(1, 200):       # n noisy snapshots
-      make_and_save_curve(i, output_folder)
+    #for i in range(1, 200):       # n noisy snapshots
+    #  make_and_save_curve(i, output_folder)
